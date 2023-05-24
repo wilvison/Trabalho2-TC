@@ -1,0 +1,54 @@
+class MealyMachine:
+    def __init__(self):
+        self.estado = 'LIGADO'
+        self.total = 0
+
+    def process_moeda(self, moeda):
+        if moeda == 25:
+            self.total += moeda
+            self.estado = 'UM_QUARTO'
+        elif moeda == 50:
+            self.total += moeda
+            self.estado = 'METADE'
+        elif moeda == 100:
+            self.total += moeda
+            self.estado = 'INTEIRO'
+        else:
+            self.estado = 'INVALIDO'
+
+        if self.total >= 100:
+            self.total = 0
+            return 1
+        else:
+            return 0
+
+    def reset(self):
+        self.estado = 'LIGADO'
+        self.total = 0
+
+
+def main():
+    refri_machine = MealyMachine()
+
+    while True:
+        moeda = int(input("Insira uma moeda (25, 50 ou 100) ou 0 para sair: "))
+
+        if moeda == 0:
+            break
+
+        output = refri_machine.process_moeda(moeda)
+
+        if refri_machine.estado == 'INVALIDO':
+            print("Moeda inválida. Insira apenas 25, 50 ou 100 centavos.")
+            refri_machine.reset()
+        else:
+            if output == 1:
+                print("| >> Saida 1 >>|Lata de refrigerante Liberada.")
+            else:
+                print("| >> Saída 0 >>|Ainda não é possível liberar uma lata de refrigerante.")
+
+    print("Programa encerrado.")
+
+
+if __name__ == '__main__':
+    main()5
