@@ -7,6 +7,6 @@ Repositório feito para implementação do trabalho de teoria da computação
 
 ## Soluções
 
-### Q3 - [O Problema dos Arranjos Familiares][(src/transdutor%20finito)]
+### Q3 - [O Problema dos Arranjos Familiares][(src/transdutor%20finito.py)]
 
 <!-- Explicação resumida do problema -->
